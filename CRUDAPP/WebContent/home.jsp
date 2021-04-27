@@ -17,7 +17,8 @@
                 <th>Name</th>
                 <th>Last Name</th>
                 <th>Salary</th>
-                
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <c:forEach var="emp" items="${list}">
                 <tr>
@@ -28,6 +29,8 @@
                     <td>
                         <a href="edit?id=<c:out value='${emp.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>    
                         <a href="delete?id=<c:out value='${emp.id}'/>">Delete</a>                     
                     </td>
                 </tr>

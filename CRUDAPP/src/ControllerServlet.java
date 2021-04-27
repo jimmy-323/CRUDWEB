@@ -37,7 +37,9 @@ public class ControllerServlet extends HttpServlet {
 		case "/": home(request,response);
 		            break; 
 		case "/add":add(request,response);
-                    break;    
+                    break; 
+		case "/edit":edit(request,response);
+                    break;             
 		case "/update":update(request,response);
                     break;  
 		case "/delete":delete(request,response);
@@ -48,6 +50,22 @@ public class ControllerServlet extends HttpServlet {
 	}
 
 
+
+	private void edit(HttpServletRequest request, HttpServletResponse response) {
+		int id=Integer.parseInt(request.getParameter("id"));
+		employee e=Dao.getById(id);
+		try {
+			request.setAttribute("emp", e);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Edit.jsp");
+		   	dispatcher.forward(request, response);
+			
+		} catch (IOException | ServletException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	
+		
+	}
 
 	private void delete(HttpServletRequest request, HttpServletResponse response) {
 		
